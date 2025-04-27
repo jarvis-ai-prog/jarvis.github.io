@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Jarvis</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ffea;
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    button {
+      padding: 15px 30px;
+      background-color: #00ffea;
+      color: black;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    h1 {
+      font-size: 3em;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🌟 Web Jarvis 🌟</h1>
+<p id="output">Press Start and Speak!</p>
+<button onclick="startListening()">Start</button>
+
+<script>
+  function speak(text) {
+    const synth = window.speechSynthesis;
+    const utter = new SpeechSynthesisUtterance(text);
+    synth.speak(utter);
+  }
+
+  function startListening() {
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'en-US';
+    recognition.start();
+
+    recognition.onresult = function(event) {
+      const command = event.results[0][0].transcript.toLowerCase();
+      document.getElementById('output').innerText = "You said: " + command;
+      
+      if (command.includes('hello')) {
+        speak('Hello boss! How can I help you today?');
+      } 
+      else if (command.includes('time')) {
+        const time = new Date().toLocaleTimeString();
+        speak('The current time is ' + time);
+      }
+      else if (command.includes('open google')) {
+        speak('Opening Google');
+        window.open('https://www.google.com', '_blank');
+      }
+      else {
+        speak('Sorry, I did not understand that.');
+      }
+    };
+  }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Jarvis</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ffea;
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    button {
+      padding: 15px 30px;
+      background-color: #00ffea;
+      color: black;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    h1 {
+      font-size: 3em;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🌟 Web Jarvis 🌟</h1>
+<p id="output">Press Start and Speak!</p>
+<button onclick="startListening()">Start</button>
+
+<script>
+  function speak(text) {
+    const synth = window.speechSynthesis;
+    const utter = new SpeechSynthesisUtterance(text);
+    synth.speak(utter);
+  }
+
+  function startListening() {
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'en-US';
+    recognition.start();
+
+    recognition.onresult = function(event) {
+      const command = event.results[0][0].transcript.toLowerCase();
+      document.getElementById('output').innerText = "You said: " + command;
+      
+      if (command.includes('hello')) {
+        speak('Hello boss! How can I help you today?');
+      } 
+      else if (command.includes('time')) {
+        const time = new Date().toLocaleTimeString();
+        speak('The current time is ' + time);
+      }
+      else if (command.includes('open google')) {
+        speak('Opening Google');
+        window.open('https://www.google.com', '_blank');
+      }
+      else {
+        speak('Sorry, I did not understand that.');
+      }
+    };
+  }
+</script>
+
+</body>
+</html>
