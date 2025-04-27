@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jarvis AI</title>
+  <style>
+    body {
+      background-color: black;
+      color: cyan;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 50px;
+    }
+    p {
+      font-size: 20px;
+    }
+    button {
+      background-color: cyan;
+      color: black;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome, Sir</h1>
+  <p>I am Jarvis, your AI assistant.</p>
+
+  <button onclick="talk()">Start Jarvis</button>
+
+  <script>
+    function talk() {
+      const msg = new SpeechSynthesisUtterance();
+      msg.text = "Hello sir, I am online and ready to assist you.";
+      window.speechSynthesis.speak(msg);
+    }
+  </script>
+
+</body>
+</html>
